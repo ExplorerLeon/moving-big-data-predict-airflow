@@ -8,16 +8,27 @@
 # Import packages
 import pandas as pd
 
-# Local file directories
-# These paths can be updated to meet your testing environment needs.
-source_path = "../../Stocks/"
-save_path = "../../Output/"
-index_file_path = '../data/top_companies.txt'
+UBUNTU_HOME = "/home/ubuntu"
+S3_BUCKET_HOME = f"{UBUNTU_HOME}/s3-drive"
 
-# # # Define the paths in your ec2 instance here
-# source_path = "/opt/airflow/s3-drive/Stocks/"
-# save_path = "/opt/airflow/s3-drive/Output/"
-# index_file_path = "/opt/airflow/s3-drive/CompanyName/top_companies.txt"
+AIRFLOW_HOME = "/opt/airflow"
+AIRFLOW_BUCKET_HOME = f"{AIRFLOW_HOME}/s3-drive"
+
+# # Airflow file directories
+# source_path = f"{AIRFLOW_BUCKET_HOME}/Stocks/"
+# save_path = f"{AIRFLOW_BUCKET_HOME}/utput/"
+# index_file_path = f"{AIRFLOW_BUCKET_HOME}/CompanyNames/top_companies.txt"
+
+# # Local file directories
+# # These paths can be updated to meet your testing environment needs.
+# source_path = "../../Stocks/"
+# save_path = "../../Output/"
+# index_file_path = '../data/top_companies.txt'
+
+# # EC2 instance file directories
+source_path = f"{S3_BUCKET_HOME}/Stocks/"
+save_path = f"{S3_BUCKET_HOME}/Output/"
+index_file_path = f"{S3_BUCKET_HOME}/CompanyNames/top_companies.txt"
 
 # Helper function to extract companies to etl
 def extract_companies_from_index(index_file_path):

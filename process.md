@@ -5,7 +5,7 @@
     - EC2 is by default to have access to S3, RDSdata and SNS
     - Why does RDS require it and where does it fit in
 
-## Steps followed
+## Steps followed - for PART 1
 Quick summary of each resource on AWS used and processed followed to complete predict. With some notes, hints and hacks to complete this.
 
 ### AWS IAM Roles
@@ -92,9 +92,23 @@ Notebook contains all the info - clear and simple steps
 
 #### Python Script - historical_processing_ec2.py
 Copy paste code
+**For Local Testing**
+- set the paths applicable to your locations and test
 
-
+**Remote Testing**
+Running the script form ec2 instance and getting the script from the mounted s3 so change path variables acordingly
 
 ### AWS RDS Database Tables create
 Use pgAdim to setup the RDS server
 - Remeber the password and username created during the AWS RDS setup --> type it in here at pgAdmin
+- Run create table query
+
+**Create INSERT QUERY for data**
+Check the file - basic and upload to S3 bucket
+
+### AWS SNS
+- Quick and easy setup
+
+
+## Steps followed - for PART 2
+Quick summary of each resource on AWS used and processed followed to complete predict. With some notes, hints and hacks to complete this.
