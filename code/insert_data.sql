@@ -12,4 +12,4 @@ INSERT INTO public.historical_stocks_data(
     daily_percent_change,
     value_change,
     company_name)
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+	VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);

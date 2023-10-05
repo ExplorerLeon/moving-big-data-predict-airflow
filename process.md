@@ -100,7 +100,7 @@ Running the script form ec2 instance and getting the script from the mounted s3 
 
 ### AWS RDS Database Tables create
 Use pgAdim to setup the RDS server
-- Remeber the password and username created during the AWS RDS setup --> type it in here at pgAdmin
+- Remeber the password and username created during the AWS RDS setup --> type it in here at pgAdmin (postgres and postgres)
 - Run create table query
 
 **Create INSERT QUERY for data**
@@ -112,3 +112,14 @@ Check the file - basic and upload to S3 bucket
 
 ## Steps followed - for PART 2
 Quick summary of each resource on AWS used and processed followed to complete predict. With some notes, hints and hacks to complete this.
+
+### Airflow Dag python script:
+
+- using psycopg2 to conect to db and perform operations
+standard other ode and functions for the dag script -- just checking the awshook thing if required
+- made the number of files less by removing some items from top companies due to error recieved becuase e2 instance memory not enough
+
+#### S3 Bucket for monitoring
+Normal create with extra policy for marking
+
+#### Lambda Function

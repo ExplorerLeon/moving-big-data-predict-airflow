@@ -14,21 +14,21 @@ S3_BUCKET_HOME = f"{UBUNTU_HOME}/s3-drive"
 AIRFLOW_HOME = "/opt/airflow"
 AIRFLOW_BUCKET_HOME = f"{AIRFLOW_HOME}/s3-drive"
 
-# # Airflow file directories
+# Airflow file directories
 # source_path = f"{AIRFLOW_BUCKET_HOME}/Stocks/"
-# save_path = f"{AIRFLOW_BUCKET_HOME}/utput/"
+# save_path = f"{AIRFLOW_BUCKET_HOME}/Output/"
 # index_file_path = f"{AIRFLOW_BUCKET_HOME}/CompanyNames/top_companies.txt"
 
 # # Local file directories
 # # These paths can be updated to meet your testing environment needs.
-# source_path = "../../Stocks/"
-# save_path = "../../Output/"
-# index_file_path = '../data/top_companies.txt'
+source_path = "../../Stocks/"
+save_path = "../../Output/"
+index_file_path = '../data/top_companies.txt'
 
-# # EC2 instance file directories
-source_path = f"{S3_BUCKET_HOME}/Stocks/"
-save_path = f"{S3_BUCKET_HOME}/Output/"
-index_file_path = f"{S3_BUCKET_HOME}/CompanyNames/top_companies.txt"
+# # # EC2 instance file directories
+# source_path = f"{S3_BUCKET_HOME}/Stocks/"
+# save_path = f"{S3_BUCKET_HOME}/Output/"
+# index_file_path = f"{S3_BUCKET_HOME}/CompanyNames/top_companies.txt"
 
 # Helper function to extract companies to etl
 def extract_companies_from_index(index_file_path):
@@ -120,8 +120,8 @@ def data_processing(file_paths, output_path):
         except:
             print(f"This file {file_path} cannot be read")
 
-    master_df = df.rename(columns=new_names, inplace=False)
-    save_table(master_df, output_path, "historical_stock_data", False)
+    master_df = df.rename(columns=new_names)
+    save_table(master_df, output_path, "historical_stock_data", True)
 
 if __name__ == "__main__":
 

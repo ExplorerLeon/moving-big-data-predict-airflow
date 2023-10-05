@@ -1,10 +1,10 @@
 import requests
 
-airflow_instance_ip = ""
-airflow_dag = ""
+airflow_instance_ip = "54.195.143.179"
+airflow_dag = "edsa-mbd-airflow-pipeline"
 
 def lambda_handler(event, context):
-    
+
     response = requests.post(f"http://{airflow_instance_ip}:8080/api/v1/dags/{airflow_dag}/dagRuns",
                              headers={"Content-Type": "application/json", "Accept": "application/json"},
                              auth = ("airflow", "airflow"),
